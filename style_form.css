@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    background-color: rgb(203, 227, 227);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Fasthand';
+}
+.form{
+    background-color: rgb(138, 207, 207);
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    align-items: center;
+    width: 60%;
+    height: 80%;
+    box-shadow: 10px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    margin-top: 6%;
+    border-radius: 10px;
+}
+h1,h2 {
+    text-align: center;
+    margin: 5px;
+}
+.submit{
+    background-color: darkcyan;
+    padding: 10px 30px;
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}

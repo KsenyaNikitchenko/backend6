@@ -1,0 +1,33 @@
+CREATE TABLE person5 (
+id_person INT(10) unsigned NOT NULL AUTO_INCREMENT,
+name VARCHAR(128) NOT NULL,
+email VARCHAR(30),
+year YEAR(4),
+gender VARCHAR(10),
+limbs INT(5),
+biography TEXT,
+PRIMARY KEY(id_person)
+);
+
+CREATE TABLE superpower(
+id_power INT(10) unsigned NOT NULL AUTO_INCREMENT,
+superpower VARCHAR(200),
+PRIMARY KEY(id_power)
+);
+
+CREATE TABLE ability5(
+    id_user INT(10) NOT NULL,
+    id_superpower INT(10) NOT NULL,
+    PRIMARY KEY(id_user,id_superpower)
+);
+
+INSERT INTO superpower (superpower) VALUES
+    ('deathless'),('walls'),('levitation'),
+    ('elements'),('time travel');
+
+CREATE TABLE user(
+	id INT(10) unsigned NOT NULL AUTO_INCREMENT,
+	login VARCHAR(128) NOT NULL,
+	password VARCHAR(256) NOT NULL,
+	PRIMARY KEY(id)
+);
