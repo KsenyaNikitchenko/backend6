@@ -311,5 +311,5 @@ else{
     echo 'Ошибка: ' . $e->getMessage();
     exit();
   }
-  header('Location: admin.php');
+  header('Location: ./admin.php');
 }
