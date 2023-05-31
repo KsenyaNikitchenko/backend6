@@ -14,14 +14,15 @@
 }
 a{
     color:black;
+    text-decoration: none;
 }
     </style>
 </head>
 
 <body>
     <div>
-    <a href="login.php" style="text-decoration: none; color: #de530e;">Войти</a><br>
-	<a href="admin.php" style="text-decoration: none; color: #de530e;">Войти под именем администратора</a>
+    <a href="login.php">Войти</a><br>
+	<a href="admin.php">Войти под именем администратора</a>
     </div>
 <div class="form">
 <?php
