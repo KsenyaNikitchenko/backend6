@@ -31,7 +31,7 @@ function show_tables($db){
   JOIN user ON person5.id_person=user.id;';
   ?>
   <br><br>
-  <table class="table">
+  <table class="table" style="border: 2px; bordercolor:grey">
   <caption>Данные пользователей</caption> 
     <tr><th>id_person</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
