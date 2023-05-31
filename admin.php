@@ -240,7 +240,7 @@ function edit_user($db, $edit){
         $gender,
         $limbs,
         $biography,
-        $edit
+        $edit,
     ));
     //удаляем старые данные о способностях и заполняем новыми
     if(!empty($_POST['super'])){
@@ -254,6 +254,7 @@ function edit_user($db, $edit){
         $stmt1 -> execute([$edit, $id_power]);
     }
     unset($value);
+    }
   }
   catch(PDOException $e) {
     echo 'Ошибка: ' . $e->getMessage();
