@@ -229,7 +229,7 @@ function edit_user($db, $edit){
     $stmt = $db->prepare('SELECT * FROM person5 WHERE id_user=?');
     $stmt -> execute(array($edit));
     $a = array();
-    $old_data = ($stmt->fetchAll(PDO::FETCH_ASSOC))['0'];
+    $old_data = ($stmt->fetchAll(PDO::FETCH_ASSOC))[$edit];
     foreach ($old_data as $key=>$val){
       $a[$key] = $val;
     }
