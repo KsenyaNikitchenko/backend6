@@ -241,15 +241,7 @@ function edit_user($db, $edit){
     $biography = empty($_POST['biography']) ? $a['biography'] : $_POST['biography'];
 
     $stmt = $db->prepare("UPDATE person5 SET name = ?, email = ?, year = ?, gender = ?, limbs = ?, biography = ? WHERE id_person =?");
-    $stmt -> execute(array(
-        $name,
-        $email,
-        $year,
-        $gender,
-        $limbs,
-        $biography,
-        $edit,
-    ));
+    $stmt -> execute([$name,$email,$year,$gender,$limbs,$biography,$edit]));
     //удаляем старые данные о способностях и заполняем новыми
     if(!empty($_POST['super'])){
       $sth = $db->prepare("DELETE FROM ability5 WHERE id_user = ?");
