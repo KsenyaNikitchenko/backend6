@@ -51,7 +51,7 @@ function show_tables($db){
     <br><br>
     <table class="table">
     <caption>Статистика для суперспособностей</caption> 
-      <tr><th>id_superpower</th><th>number_of_users</th></tr><!--ряд с ячейками заголовков-->
+      <tr><th>Сверхспособность</th><th>Количество пользователей</th></tr><!--ряд с ячейками заголовков-->
     <?php
     foreach ($db->query($sql, PDO::FETCH_ASSOC) as $row) {
       print('<tr>');
