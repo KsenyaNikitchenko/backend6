@@ -3,7 +3,7 @@
     <title>Сверхспособности</title>
     <link rel="stylesheet" href="style_form.css">
     <style>
-      .table{
+      table{
         border: 2px; bordercolor:grey
       }
     </style>
@@ -36,8 +36,7 @@ function show_tables($db){
   JOIN user ON person5.id_person=user.id;';
   ?>
   <br><br>
-  <div class="table">
-  <table>
+  <table class="table">
   <caption>Данные пользователей</caption> 
     <tr><th>id_person</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
@@ -49,15 +48,13 @@ function show_tables($db){
       print('<td colspan="2"> <a href="?act=edit_article&edit_id_person='.$row["id_person"].'">edit</a></td>');
       print('<td> <a href="?act=delete_article&delete_id_person='.$row["id_person"].'">delete</a></td>');
     } 
-    print('</tr></table>');?>
-</table>
-</div>
+    print('</tr></table>');
+
     
     $sql = 'SELECT superpower, COUNT(id_user) FROM ability5 JOIN superpower ON ability5.id_superpower=superpower.id_power GROUP BY superpower;';
     ?>
     <br><br>
-    <div class="table">
-  <table>
+    <table class="table">
     <caption>Статистика для суперспособностей</caption> 
       <tr><th>Сверхспособность</th><th>Количество пользователей</th></tr><!--ряд с ячейками заголовков-->
     <?php
