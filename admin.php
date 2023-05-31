@@ -229,6 +229,7 @@ function edit_user($db, $edit){
     $stmt = $db->prepare('SELECT * FROM person5 WHERE id_user=?');
     $stmt -> execute(array($edit));
     $a = array();
+    $stmt=$db->prepare("SELECT * FROM person5 WHERE id")
     $old_data = ($stmt->fetchAll(PDO::FETCH_ASSOC))[$edit];
     foreach ($old_data as $key=>$val){
       $a[$key] = $val;
@@ -295,7 +296,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
   else if(isset($_GET['act'])&&$_GET['act']=='delete_article'){
     ?>
     <form action="" method="post">
-    <h5>Удалить пользователя c id=<?php print($_GET['delete_id']);?>?</h5>
+    <h5>Удалить пользователя c id=<?php print($_GET['delete_id_person']);?>?</h5>
     <p><button type="submit" value="send">Ок</button></p>
     </form>
     <?php
@@ -303,8 +304,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 else{
   try {
-    if(!empty($_GET['delete_id'])){delete_user($db, $_GET['delete_id_person']);}
-    if(!empty($_GET['edit_id']))if(!errors()){edit_user($db, $_GET['edit_id_person']);}
+    if(!empty($_GET['delete_id_person'])){delete_user($db, $_GET['delete_id_person']);}
+    if(!empty($_GET['edit_id_person']))if(!errors()){edit_user($db, $_GET['edit_id_person']);}
     if(isset($_GET['act'])&&$_GET['act']=='add_article'){add_user($db);}
   }
   catch(PDOException $e) {
