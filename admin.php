@@ -115,34 +115,34 @@ function form($db){
 function errors(){
   $errors = FALSE;
     // ИМЯ
-    if (empty($_POST['name'])&&empty($_GET['edit_id'])) {
+    if (empty($_POST['name'])&&empty($_GET['edit_id_person'])) {
       $errors = TRUE;
     }
     else if(!empty($_POST['name'])&&!preg_match("/^[а-яё]|[a-z]$/iu", $_POST['name'])){
       $errors = TRUE;
     }
     // EMAIL
-    if (empty($_POST['email'])&&empty($_GET['edit_id'])){
+    if (empty($_POST['email'])&&empty($_GET['edit_id_person'])){
       $errors = TRUE;
     }
     else if(!empty($_POST['email'])&&!preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+.[a-zA-Z.]{2,5}$/", $_POST['email'])){
       $errors = TRUE;
     }
     // ГОД
-    if (empty($_POST['year'])&&empty($_GET['edit_id'])){
+    if (empty($_POST['year'])&&empty($_GET['edit_id_person'])){
       $errors = TRUE;
     }
     // ПОЛ
-    if (empty($_POST['gender'])&&empty($_GET['edit_id'])) {
+    if (empty($_POST['gender'])&&empty($_GET['edit_id_person'])) {
       $errors = TRUE;
     }
     // КОНЕЧНОСТИ
-    if (empty($_POST['kon'])&&empty($_GET['edit_id'])) {
+    if (empty($_POST['kon'])&&empty($_GET['edit_id_person'])) {
       $errors = TRUE;
     }
     // СВЕРХСПОСОБНОСТИ
     $super=array();
-    if(empty($_POST['super'])&&empty($_GET['edit_id'])){
+    if(empty($_POST['super'])&&empty($_GET['edit_id_person'])){
       $errors = TRUE;
     }
     else if(!empty($_POST['super'])){
@@ -151,7 +151,7 @@ function errors(){
       }
     }
     // БИОГРАФИЯ
-    if (empty($_POST['bio'])&&empty($_GET['edit_id'])) {
+    if (empty($_POST['bio'])&&empty($_GET['edit_id_person'])) {
       $errors = TRUE;
     }
     if ($errors) {
@@ -274,7 +274,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
   show_tables($db);
   if(isset($_GET['act'])&&$_GET['act']=='edit_article'){
     ?><form action="" method="post">
-      <h5>Редактировать профиль с id=<?php print($_GET['edit_id']); ?></h5>
+      <h5>Редактировать профиль с id=<?php print($_GET['edit_id_person']); ?></h5>
     <p>
       <?php form($db);?>
     </p>
@@ -303,8 +303,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 else{
   try {
-    if(!empty($_GET['delete_id'])){delete_user($db, $_GET['delete_id']);}
-    if(!empty($_GET['edit_id']))if(!errors()){edit_user($db, $_GET['edit_id']);}
+    if(!empty($_GET['delete_id'])){delete_user($db, $_GET['delete_id_person']);}
+    if(!empty($_GET['edit_id']))if(!errors()){edit_user($db, $_GET['edit_id_person']);}
     if(isset($_GET['act'])&&$_GET['act']=='add_article'){add_user($db);}
   }
   catch(PDOException $e) {
