@@ -31,15 +31,15 @@ function show_tables($db){
   JOIN user ON person5.id_person=user.id;';
   ?><table class="table">
   <caption>Данные пользователей</caption> 
-    <tr><th>id</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
+    <tr><th>id_person</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
 	  foreach ($db->query($sql, PDO::FETCH_ASSOC) as $row) {
       print('<tr>');
       foreach ($row as $v){
         print('<td>'.$v. '</td>');
       }
-      print('<td colspan="2"> <a href="?act=edit_article&edit_id='.$row["id"].'">edit</a></td>');
-      print('<td> <a href="?act=delete_article&delete_id='.$row["id"].'">delete</a></td>');
+      print('<td colspan="2"> <a href="?act=edit_article&edit_id_person='.$row["id_person"].'">edit</a></td>');
+      print('<td> <a href="?act=delete_article&delete_id_person='.$row["id_person"].'">delete</a></td>');
     } 
     print('</tr></table>');
     print('<td> <a href="?act=add_article">add</a></td><br>');
