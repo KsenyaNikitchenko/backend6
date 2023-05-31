@@ -49,7 +49,7 @@ function show_tables($db){
       print('<td colspan="2"> <a href="?act=edit_article&edit_id_person='.$row["id_person"].'">edit</a></td>');
       print('<td> <a href="?act=delete_article&delete_id_person='.$row["id_person"].'">delete</a></td>');
     } 
-    print('</tr></table>');
+    print('</tr></table>');?>
 </table>
 </div>
     
