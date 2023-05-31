@@ -5,7 +5,6 @@
     <title>Сверхспособности</title>
     <link rel="stylesheet" href="style_form.css">
 </head>
-<body>
     <?php
     $db_user = 'u52984';
     $db_pass = '8295850';
@@ -305,5 +304,3 @@ else{
   }
   header('Location: admin.php');
 }
-</body>
-</html>
