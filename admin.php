@@ -42,7 +42,6 @@ function show_tables($db){
       print('<td> <a href="?act=delete_article&delete_id_person='.$row["id_person"].'">delete</a></td>');
     } 
     print('</tr></table>');
-    print('<td> <a href="?act=add_article">add</a></td><br>');
 
     
     $sql = 'SELECT ability5.id_superpower, COUNT(ability5.id_user)
@@ -175,55 +174,6 @@ function delete_user($db, $del){
     exit();
   }
 }
-function add_user($db){
-  $sth = $db->prepare("SELECT login FROM user");
-  $sth->execute();
-  $login_array = $sth->fetchAll(PDO::FETCH_COLUMN);
-  $flag=true;
-  do{
-    $login = rand(1,1000);
-    $pass = rand(1,10000);
-    foreach($login_array as $value){
-      if($value == $login)
-        $flag=false;
-    }
-  }while($flag==false);
-  $hash = password_hash((string)$pass, PASSWORD_BCRYPT);
-
-  // Сохранение данных формы, логина и хеш пароля в базу данных.
-  try {
-    $stmt = $db->prepare("INSERT INTO person5 SET name = ?, email = ?, year = ?, gender = ?, limbs = ?, biography = ?");
-    $stmt -> execute(array(
-        $_POST['name'],
-        $_POST['email'],
-        $_POST['year'],
-        $_POST['gender'],
-        $_POST['kon'],
-        $_POST['bio'],
-      )
-    );
-
-    $id_db = $db->lastInsertId("person5");
-    //реализация атомарности
-    $stmt = $db->prepare("INSERT INTO ability5 SET id_user = ?, id_superpower = ?");
-    foreach($_POST['super'] as $s){
-        $stmt -> execute(array(
-          $id_db,
-          $s,
-        ));
-      }
-    $stmt = $db->prepare("INSERT INTO user SET login = ?, password = ?");
-    $stmt -> execute(array(
-        $login,
-        $hash,
-      )
-    );
-  } 
-  catch(PDOException $e) {
-    echo 'Ошибка: ' . $e->getMessage();
-    exit();
-  }
-}
 function edit_user($db, $edit){
   try {
     $stmt = $db->prepare('SELECT * FROM person5 WHERE id_user=?');
@@ -297,7 +247,6 @@ else{
   try {
     if(!empty($_GET['delete_id_person'])){delete_user($db, $_GET['delete_id_person']);}
     if(!empty($_GET['edit_id_person']))if(!errors()){edit_user($db, $_GET['edit_id_person']);}
-    if(isset($_GET['act'])&&$_GET['act']=='add_article'){add_user($db);}
   }
   catch(PDOException $e) {
     echo 'Ошибка: ' . $e->getMessage();
