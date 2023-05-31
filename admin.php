@@ -29,7 +29,9 @@ function show_tables($db){
   $sql = 'SELECT person5.*, ability5.id_superpower, user.login 
   FROM person5 JOIN ability5 ON person5.id_person=ability5.id_user
   JOIN user ON person5.id_person=user.id;';
-  ?><table class="table">
+  ?>
+  <br><br>
+  <table class="table">
   <caption>Данные пользователей</caption> 
     <tr><th>id_person</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
@@ -47,6 +49,7 @@ function show_tables($db){
     $sql = 'SELECT ability5.id_superpower, COUNT(ability5.id_user)
     FROM ability5 GROUP BY id_superpower;';
     ?>
+    <br><br>
     <table class="table">
     <caption>Статистика для суперспособностей</caption> 
       <tr><th>id_superpower</th><th>number_of_users</th></tr><!--ряд с ячейками заголовков-->
