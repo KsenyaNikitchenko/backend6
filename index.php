@@ -15,6 +15,7 @@
 a{
     color:black;
     text-decoration: none;
+    text-align: center;
 }
     </style>
 </head>
