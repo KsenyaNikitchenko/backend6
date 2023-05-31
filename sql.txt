@@ -38,9 +38,14 @@ CREATE TABLE admin(
 	password VARCHAR(256) NOT NULL,
 	PRIMARY KEY(id)
 );
+
+INSERT INTO admin VALUES (1, 'admin', 'admin123');
 SELECT person5.*, ability5.id_superpower, user.login 
 FROM person5 JOIN ability5 ON person5.id_person=ability5.id_user
 JOIN user ON person5.id_person=user.id;
+
+SELECT ability5.id_superpower, COUNT(ability5.id_user)
+FROM ability5 GROUP BY id_superpower;
 
 SELECT superpower, COUNT(ability5.id_user)
 FROM (SELECT * FROM ability5
