@@ -241,7 +241,7 @@ else {
       $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['year'], $_POST['gender'], $_POST['limbs'], $_POST['biography']]);
       $last_index=$db->lastInsertId();
       $stmt = $db->prepare("SELECT id_power FROM superpower WHERE superpower = ?");
-      foreach ($_POST['superpowers'] as $value) {
+      foreach ($_POST['super'] as $value) {
           $stmt->execute([$value]);
           $id_power=$stmt->fetchColumn();
           $stmt1 = $db->prepare("INSERT INTO ability5 (id_user, id_superpower) VALUES (?, ?)");
@@ -260,5 +260,5 @@ else {
   }
   }
 setcookie('save','1');
-header('Location: ?save=1');
+header('Location: index.php?save=1');
 }

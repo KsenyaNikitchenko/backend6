@@ -31,3 +31,17 @@ CREATE TABLE user(
 	password VARCHAR(256) NOT NULL,
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE admin(
+	id INT(10) unsigned NOT NULL AUTO_INCREMENT,
+	login VARCHAR(128) NOT NULL,
+	password VARCHAR(256) NOT NULL,
+	PRIMARY KEY(id)
+);
+SELECT person5.*, ability5.id_superpower, user.login 
+FROM person5 JOIN ability5 ON person5.id_person=ability5.id_user
+JOIN user ON person5.id_person=user.id;
+
+SELECT superpower, COUNT(ability5.id_user)
+FROM (SELECT * FROM ability5
+JOIN superpower ON superpower.id_power=ability5.id_superpower) as super;

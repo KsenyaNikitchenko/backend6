@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <div>
+    <a href="login.php" style="text-decoration: none; color: #de530e;">Войти</a>
+	<a href="admin.php" style="text-decoration: none; color: #de530e;">Войти под именем администратора</a>
+    </div>
+<div class="form">
 <?php
 if (!empty($messages)) {
   foreach ($messages as $m) {
@@ -24,7 +29,6 @@ if (!empty($messages)) {
   print('</div>');
 }
 ?>
-    <div class="form">
         <h1>Сверхспособности</h1>
         <form action="" method="POST">
             <label for="name">Введите имя:<br>
