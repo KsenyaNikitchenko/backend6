@@ -12,12 +12,15 @@
 .error_m{
     text-decoration: underline red;
 }
+a{
+    color:black;
+}
     </style>
 </head>
 
 <body>
     <div>
-    <a href="login.php" style="text-decoration: none; color: #de530e;">Войти</a>
+    <a href="login.php" style="text-decoration: none; color: #de530e;">Войти</a><br>
 	<a href="admin.php" style="text-decoration: none; color: #de530e;">Войти под именем администратора</a>
     </div>
 <div class="form">
