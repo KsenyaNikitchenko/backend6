@@ -36,7 +36,8 @@ function show_tables($db){
   JOIN user ON person5.id_person=user.id;';
   ?>
   <br><br>
-  <table class="table">
+  <div class="table">
+  <table>
   <caption>Данные пользователей</caption> 
     <tr><th>id_person</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
@@ -49,12 +50,14 @@ function show_tables($db){
       print('<td> <a href="?act=delete_article&delete_id_person='.$row["id_person"].'">delete</a></td>');
     } 
     print('</tr></table>');
-
+</table>
+</div>
     
     $sql = 'SELECT superpower, COUNT(id_user) FROM ability5 JOIN superpower ON ability5.id_superpower=superpower.id_power GROUP BY superpower;';
     ?>
     <br><br>
-    <table class="table">
+    <div class="table">
+  <table>
     <caption>Статистика для суперспособностей</caption> 
       <tr><th>Сверхспособность</th><th>Количество пользователей</th></tr><!--ряд с ячейками заголовков-->
     <?php
