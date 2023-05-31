@@ -11,9 +11,7 @@
     ));
     $login = isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : '';
     $stmt = $db->prepare("SELECT * FROM admin WHERE login = ?");
-          $stmt->execute(array(
-            $login
-          ));
+    $stmt->execute(array($login));
     $admin_pass = $stmt->fetch();
 
     if (empty($_SERVER['PHP_AUTH_USER']) ||
@@ -32,7 +30,7 @@ function show_tables($db){
   FROM person5 JOIN ability5 ON person5.id_person=ability5.id_user
   JOIN user ON person5.id_person=user.id;';
   ?><table class="table">
-  <caption>users' data</caption> 
+  <caption>Данные пользователей</caption> 
     <tr><th>id</th><th>name</th><th>e-mail</th><th>year</th><th>gender</th><th>limbs</th><th>biography</th><th>id_superpower</th><th>login</th><th colspan="3">action</th></tr><!--ряд с ячейками заголовков-->
   <?php
 	  foreach ($db->query($sql, PDO::FETCH_ASSOC) as $row) {
@@ -50,7 +48,7 @@ function show_tables($db){
     FROM ability5 GROUP BY id_superpower;';
     ?>
     <table class="table">
-    <caption>superpowers' statistics</caption> 
+    <caption>Статистика для суперспособностей</caption> 
       <tr><th>id_superpower</th><th>number_of_users</th></tr><!--ряд с ячейками заголовков-->
     <?php
     foreach ($db->query($sql, PDO::FETCH_ASSOC) as $row) {
