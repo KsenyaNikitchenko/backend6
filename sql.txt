@@ -50,3 +50,6 @@ FROM ability5 GROUP BY id_superpower;
 SELECT superpower, COUNT(ability5.id_user)
 FROM (SELECT * FROM ability5
 JOIN superpower ON superpower.id_power=ability5.id_superpower) as super;
+
+select * from ability5 join superpower on ability5.id_superpower=superpower.id_power;
+SELECT superpower, COUNT(id_user) FROM ability5 JOIN superpower ON ability5.id_superpower=superpower.id_power GROUP BY superpower;

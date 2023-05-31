@@ -46,8 +46,7 @@ function show_tables($db){
     print('</tr></table>');
 
     
-    $sql = 'SELECT ability5.id_superpower, COUNT(ability5.id_user)
-    FROM ability5 GROUP BY id_superpower;';
+    $sql = 'SELECT superpower, COUNT(id_user) FROM ability5 JOIN superpower ON ability5.id_superpower=superpower.id_power GROUP BY superpower;';
     ?>
     <br><br>
     <table class="table">
