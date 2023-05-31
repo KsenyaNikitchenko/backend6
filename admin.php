@@ -38,7 +38,8 @@ function show_tables($db){
       foreach ($row as $v){
         print('<td>'.$v. '</td>');
       }
-      print('<td colspan="2"> <a href="?act=edit_article&edit_id='.$row["id"].'">edit</a></td>   ');print('<td> <a href="?act=delete_article&delete_id='.$row["id"].'">delete</a></td>');
+      print('<td colspan="2"> <a href="?act=edit_article&edit_id='.$row["id"].'">edit</a></td>');
+      print('<td> <a href="?act=delete_article&delete_id='.$row["id"].'">delete</a></td>');
     } 
     print('</tr></table>');
     print('<td> <a href="?act=add_article">add</a></td><br>');
