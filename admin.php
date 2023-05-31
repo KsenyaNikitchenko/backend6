@@ -162,8 +162,8 @@ function delete_user($db, $del){
     $sth = $db->prepare("DELETE FROM user WHERE id = ?");
     $sth->execute(array($del));
   }
-  catch(PDOException $e){
-    print('Error: ' . $e->getMessage());
+  catch(PDOException $e) {
+    echo 'Ошибка: ' . $e->getMessage();
     exit();
   }
 }
@@ -211,8 +211,8 @@ function add_user($db){
       )
     );
   } 
-  catch(PDOException $e){
-    print('Error: ' . $e->getMessage());
+  catch(PDOException $e) {
+    echo 'Ошибка: ' . $e->getMessage();
     exit();
   }
 }
@@ -255,8 +255,8 @@ function edit_user($db, $edit){
     }
     unset($value);
   }
-  catch(PDOException $e){
-    print('Error: ' . $e->getMessage());
+  catch(PDOException $e) {
+    echo 'Ошибка: ' . $e->getMessage();
     exit();
   }
 }
